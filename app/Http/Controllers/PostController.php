@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class PostController extends Controller
 {
     public function deletePost(Post $post) {
-        if (auth()->user()->id !== $post['user_id']) {
+        if (auth()->user()->id === $post['user_id']) {
             $post->delete();    
         } 
         return redirect('/');
