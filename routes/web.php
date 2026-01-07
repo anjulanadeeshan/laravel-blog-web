@@ -7,10 +7,10 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     $posts =[];
-    if(auth()->check()) {
-    $posts = auth()->user()->usersCoolPosts()->latest()->get();
-
-    }
+    // if(auth()->check()) {
+    // $posts = auth()->user()->usersCoolPosts()->latest()->get();
+    // }
+    $posts = Post::with('user')->latest()->get();
     // $posts = Post::where('user_id', auth()->id())->get();
     return view('home', ['posts' => $posts]);
 });

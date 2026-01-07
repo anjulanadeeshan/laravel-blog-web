@@ -241,6 +241,31 @@
                 </form>
             </div>
         </div>
+
+        <<div class="card">
+    <h2>All Posts</h2>
+    @foreach($posts as $post)
+    <div class="post-item">
+        <h3>{{$post['title']}}</h3>
+        <p><small>by {{$post->user->name}}</small></p>
+        <p>{{$post['body']}}</p>
+        
+        @if(auth()->id() == $post->user_id)
+            <div class="post-actions">
+                <a href="/edit-post/{{$post->id}}">Edit</a>
+                <form action="/delete-post/{{$post->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="delete-btn">Delete</button>
+                </form>
+            </div>
+        @endif
+        
+    </div>
+    @endforeach
+</div>
+
+        </div>
     @endauth
     </div>
 </body>
