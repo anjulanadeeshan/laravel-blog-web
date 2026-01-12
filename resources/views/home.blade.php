@@ -220,7 +220,7 @@
         </div>
     @else
         <div class="auth-container">
-            <div class="card">
+            <div class="card" id="register">
                 <h2>Register</h2>
                 <form action="/register" method="POST">
                     @csrf
@@ -231,7 +231,7 @@
                 </form>
             </div>
 
-            <div class="card">
+            <div class="card" id="login">
                 <h2>Login</h2>
                 <form action="/login" method="POST">
                     @csrf
@@ -242,7 +242,7 @@
             </div>
         </div>
 
-        <<div class="card">
+        <div class="card">
     <h2>All Posts</h2>
     @foreach($posts as $post)
     <div class="post-item">

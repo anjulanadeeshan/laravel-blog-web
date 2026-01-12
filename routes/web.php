@@ -12,7 +12,15 @@ Route::get('/', function () {
     // }
     $posts = Post::with('user')->latest()->get();
     // $posts = Post::where('user_id', auth()->id())->get();
-    return view('home', ['posts' => $posts]);
+    return view('welcome', ['posts' => $posts]);
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/register', function () {
+    return view('register');
 });
 
 Route::post('/register', [UserController::class, 'register']);
@@ -22,6 +30,10 @@ Route::post('/logout', [UserController::class, 'logout']);
 Route::post('/login', [UserController::class, 'login']);
 
 // Blog post related routes
+
+Route::get('/createpost', function () {
+    return view('create-post');
+})->middleware('auth');
 
 Route::post('/createpost',[PostController::class, 'createPost']);
 
