@@ -43,7 +43,7 @@ A beautiful and modern blog application built with Laravel and Tailwind CSS, fea
 *Modern card-based blog feed with dark mode support*
 
 ### Login Page
-![Login](screenshots/login .png)
+![Login](screenshots/login.png)
 *Clean authentication interface with social login options*
 
 ### Create Post
